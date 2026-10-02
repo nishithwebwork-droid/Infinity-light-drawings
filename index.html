@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" class="bg-[#0A0A0A] text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinity Light Drawings</title>
+    <script>
+      // Fix for environments where window.fetch has only a getter without a setter,
+      // preventing "TypeError: Cannot set property fetch of #<Window> which has only a getter"
+      (function() {
+        try {
+          var nativeFetch = typeof window !== 'undefined' && window.fetch ? window.fetch.bind(window) : null;
+          var currentFetch = nativeFetch;
+
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              var protoDesc = Object.getOwnPropertyDescriptor(Window.prototype, 'fetch');
+              if (protoDesc && !protoDesc.set) {
+                Object.defineProperty(Window.prototype, 'fetch', {
+                  get: function() { return currentFetch; },
+                  set: function(fn) { currentFetch = fn; },
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+            } catch (_) {}
+          }
+
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return currentFetch; },
+            set: function(fn) { currentFetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          try {
+            var orig = window.fetch;
+            Object.defineProperty(window, 'fetch', {
+              value: function() {
+                return orig ? orig.apply(window, arguments) : Promise.reject(new Error('fetch unavailable'));
+              },
+              writable: true,
+              configurable: true,
+              enumerable: true
+            });
+          } catch (_) {}
+        }
+      })();
+    </script>
+    <meta name="description" content="Cinematic and modern filmmaking company portfolio featuring feature films, documentaries, commercial reels, and production services." />
+    <meta property="og:title" content="Infinity Light Drawings" />
+    <meta property="og:description" content="Cinematic and modern filmmaking company portfolio featuring feature films, documentaries, commercial reels, and production services." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@700&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#0A0A0A] text-[#E0E0E0] antialiased selection:bg-[#F5A623] selection:text-black">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

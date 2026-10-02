@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About - Infinity Light Drawings">
+  <Navbar currentPath="/about" />
+
+  <div class="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="border-b border-white/10 pb-12 mb-16">
+      <span class="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-3">
+        ORIGINS & ETHOS
+      </span>
+      <h1 class="text-6xl sm:text-7xl font-bebas text-white">ABOUT INFINITY.</h1>
+      <p class="text-sm text-[#A0A0A0] max-w-2xl mt-4 font-light">
+        Founded by filmmaker Nishith Sahasransu Ray, Infinity Light Drawings operates as an agile cinematic production house crafting impactful feature films, investigative documentaries, and high-voltage commercial campaigns.
+      </p>
+    </div>
+
+    <!-- Spotlight -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 bg-[#111] p-8 sm:p-12 rounded-2xl border border-white/10">
+      <div class="lg:col-span-5">
+        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-black border border-white/10">
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+            alt="Nishith Sahasransu Ray"
+            class="w-full h-full object-cover grayscale contrast-125"
+          />
+        </div>
+      </div>
+      <div class="lg:col-span-7 space-y-4">
+        <span class="text-xs font-mono text-[#F5A623] uppercase tracking-widest block">THE FOUNDER</span>
+        <h2 class="font-bebas text-4xl text-white">NISHITH SAHASRANSU RAY</h2>
+        <p class="text-sm text-[#CCCCCC] font-light leading-relaxed">
+          An alumnus of the Biju Pattanaik Film and Television Institute of Odisha (BPFTIO), Nishith served as Assistant Director on Nandita Das's <em>Zwigato</em> (TIFF, Busan) and Nila Madhab Panda's <em>Jengaburu</em> (Sony LIV).
+        </p>
+        <p class="text-sm text-[#999999] font-light leading-relaxed">
+          Infinity Light Drawings bridges regional Eastern India authentic stories with high-concept national and global cinematic execution.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

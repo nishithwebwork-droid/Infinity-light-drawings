@@ -1,0 +1,6 @@
+{
+  "name": "Infinity Light Drawings",
+  "description": "Cinematic and modern filmmaking company portfolio featuring feature films, documentaries, commercial reels, and production services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 240" width="100%" height="100%">
+  <!-- Applause Entertainment Official Logo - High Contrast & Crisp Readability -->
+
+  <!-- Top Center: Black Square Tile with Crisp White Dynamic 'A' Ribbon -->
+  <g transform="translate(90, 8)">
+    <rect width="120" height="120" fill="#0A0A0A" rx="6"/>
+    
+    <!-- Stylized dynamic flowing 'A' in pure white -->
+    <path d="M 60 22 C 57 22 50 33 43 49 C 33 72 28 94 28 102 C 28 105 31 106 35 106 C 41 106 48 100 54 87 C 60 74 67 52 70 38 C 73 50 78 68 83 82 C 87 95 92 102 96 102 C 98 102 99 100 97 96 C 92 78 82 48 70 26 C 67 22 63 22 60 22 Z" fill="#FFFFFF"/>
+    
+    <!-- Sweeping crossbar ribbon of the 'A' -->
+    <path d="M 36 78 C 50 72 68 70 86 76 C 92 78 95 80 93 82 C 91 84 86 82 80 80 C 66 74 48 76 38 82 C 34 84 33 82 36 78 Z" fill="#FFFFFF"/>
+    
+    <!-- Delicate swirl crest accent -->
+    <path d="M 48 42 C 54 32 63 28 72 31 C 77 34 81 39 79 43 C 77 45 73 42 70 39 C 64 36 57 38 52 44 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Typography: APPLAUSE (Bold, High Contrast, Large Readable Sizing) -->
+  <text x="150" y="172" 
+        text-anchor="middle" 
+        fill="#0A0A0A" 
+        font-family="'Arial Black', 'Helvetica Neue', 'Impact', sans-serif" 
+        font-size="34" 
+        font-weight="900" 
+        letter-spacing="4.5">
+    APPLAUSE
+  </text>
+
+  <!-- Subtitle: ENTERTAINMENT (Crisp, High Tracking) -->
+  <text x="150" y="202" 
+        text-anchor="middle" 
+        fill="#262626" 
+        font-family="'Arial', 'Helvetica Neue', sans-serif" 
+        font-size="16" 
+        font-weight="800" 
+        letter-spacing="7">
+    ENTERTAINMENT
+  </text>
+</svg>

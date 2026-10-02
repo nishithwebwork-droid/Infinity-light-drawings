@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Outer squircle mask / clip -->
+    <clipPath id="squircleClip">
+      <rect x="20" y="20" width="360" height="360" rx="72" ry="72" />
+    </clipPath>
+
+    <!-- Deep indigo / blue base gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020524" />
+      <stop offset="35%" stop-color="#0B1348" />
+      <stop offset="70%" stop-color="#140632" />
+      <stop offset="100%" stop-color="#0A0217" />
+    </linearGradient>
+
+    <!-- Cyan to Blue upper-left ambient glow -->
+    <radialGradient id="cyanGlow" cx="15%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#00C0FF" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#0066FF" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#0B1348" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Magenta / Purple wave gradient -->
+    <linearGradient id="magentaWave" x1="0%" y1="30%" x2="100%" y2="70%">
+      <stop offset="0%" stop-color="#00B4D8" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#9D4EDD" stop-opacity="0.85" />
+      <stop offset="75%" stop-color="#D90429" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#FF5400" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Vivid orange / red bottom-right ambient bloom -->
+    <radialGradient id="orangeBloom" cx="85%" cy="75%" r="60%">
+      <stop offset="0%" stop-color="#FF3B00" stop-opacity="0.95" />
+      <stop offset="40%" stop-color="#E85D04" stop-opacity="0.8" />
+      <stop offset="80%" stop-color="#9D0208" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#370617" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Yellow-Gold Gradient for 'l' and 'i' dot -->
+    <linearGradient id="goldStem" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE875" />
+      <stop offset="25%" stop-color="#FFD000" />
+      <stop offset="80%" stop-color="#FF9E00" />
+      <stop offset="100%" stop-color="#F48C06" />
+    </linearGradient>
+
+    <!-- Radiant Gold Gradient for the multi-layered 'v' tick -->
+    <linearGradient id="tickLayer1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3B0" />
+      <stop offset="50%" stop-color="#FFD166" />
+      <stop offset="100%" stop-color="#F4A261" />
+    </linearGradient>
+
+    <linearGradient id="tickLayer2" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#FFF9D2" />
+      <stop offset="40%" stop-color="#FFD60A" />
+      <stop offset="85%" stop-color="#FF9500" />
+      <stop offset="100%" stop-color="#E85D04" />
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#squircleClip)">
+    <!-- Base App Tile Background -->
+    <rect x="20" y="20" width="360" height="360" rx="72" ry="72" fill="url(#bgGrad)" />
+
+    <!-- Cyan upper glow -->
+    <circle cx="90" cy="130" r="160" fill="url(#cyanGlow)" />
+
+    <!-- Organic flowing iridescent ribbon curve -->
+    <path d="M 20 120 C 70 200, 150 250, 240 255 C 310 260, 350 280, 380 340 L 380 380 L 20 380 Z" 
+          fill="url(#magentaWave)" opacity="0.85" />
+
+    <!-- Vibrant orange-gold radiant corner glow -->
+    <circle cx="310" cy="300" r="150" fill="url(#orangeBloom)" />
+
+    <!-- SONY Typography in signature crisp white serif -->
+    <!-- S -->
+    <path d="M 128 116 C 128 114 125 111 117 111 C 109 111 106 114 106 119 C 106 125 110 128 120 132 C 132 137 139 143 139 152 C 139 164 129 171 116 171 C 101 171 94 163 94 153 L 102 153 C 103 160 108 164 116 164 C 123 164 129 160 129 153 C 129 146 125 142 114 138 C 103 133 97 127 97 118 C 97 109 105 104 117 104 C 129 104 135 110 136 116 Z" 
+          fill="#FFFFFF" />
+
+    <!-- O -->
+    <path d="M 174 103 C 193 103 205 117 205 137 C 205 158 193 172 174 172 C 155 172 143 158 143 137 C 143 117 155 103 174 103 Z M 174 110 C 160 110 153 121 153 137 C 153 153 160 165 174 165 C 188 165 195 153 195 137 C 195 121 188 110 174 110 Z" 
+          fill="#FFFFFF" />
+
+    <!-- N -->
+    <path d="M 215 105 L 225 105 L 249 153 L 249 105 L 258 105 L 258 170 L 248 170 L 224 121 L 224 170 L 215 170 Z" 
+          fill="#FFFFFF" />
+
+    <!-- Y -->
+    <path d="M 268 105 L 283 136 L 297 105 L 308 105 L 288 147 L 288 170 L 278 170 L 278 147 L 258 105 Z" 
+          fill="#FFFFFF" />
+
+    <!-- 'l' in 'liv' (Vertical Gold Pill / Bar) -->
+    <rect x="135" y="233" width="20" height="83" rx="4" fill="url(#goldStem)" />
+
+    <!-- 'i' in 'liv' (Dot & Stem) -->
+    <circle cx="178" cy="242" r="9" fill="url(#goldStem)" />
+    <rect x="168" y="261" width="20" height="55" rx="4" fill="url(#goldStem)" />
+
+    <!-- 'v' in 'liv' (Distinctive checkmark / tick symbol) -->
+    <!-- Background depth layer of the tick -->
+    <path d="M 197 274 C 195 270 197 266 202 266 C 205 266 208 268 211 273 L 230 307 C 232 310 236 311 239 308 L 268 243 C 271 236 275 230 280 230 C 285 230 288 234 285 241 L 250 317 C 243 331 226 333 216 320 Z" 
+          fill="url(#tickLayer1)" opacity="0.6" />
+
+    <!-- Foreground radiant checkmark tick -->
+    <path d="M 194 270 C 192 266 195 263 199 263 C 203 263 206 265 208 270 L 227 304 C 230 308 235 308 238 304 L 264 241 C 267 235 271 229 275 229 C 280 229 283 233 280 240 L 246 316 C 240 329 223 331 213 318 Z" 
+          fill="url(#tickLayer2)" />
+  </g>
+</svg>

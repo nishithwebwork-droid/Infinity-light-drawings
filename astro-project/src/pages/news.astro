@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const news = [
+  {
+    title: 'BPFTIO ALUMNUS, ODISHA ROOTS, GLOBAL RECOGNITION',
+    date: 'OCT 2024',
+    source: 'The Cine Herald',
+    tag: 'PROFILE',
+    excerpt: 'Tracing filmmaker Nishith Sahasransu Ray’s cinematic trajectory from BPFTIO to landmark productions like Zwigato and Jengaburu.'
+  },
+  {
+    title: 'HOW THIS ODIA YOUTH’S DOCUMENTARY ON WATER CRISIS IS MAKING WAVES ON THE GLOBAL FESTIVAL CIRCUIT',
+    date: 'JUL 2024',
+    source: 'Independent Cinema Journal',
+    tag: 'FEATURE',
+    excerpt: 'Ray’s searing investigative piece "Kaagi" captures the drying aquifers of Kalahandi with unsparing visual poetry.'
+  },
+  {
+    title: 'ODIA YOUNGSTERS’ SHORT FILM SELECTED FOR CLERMONT-FERRAND & IFFI GOA',
+    date: 'MAR 2024',
+    source: 'National Film Dispatch',
+    tag: 'SELECTION',
+    excerpt: '"The Monologue at Dusk" earns competitive screenings at international short film markets for its bold 1.33:1 aesthetic.'
+  }
+];
+---
+
+<Layout title="News & Headlines - Infinity Light Drawings">
+  <Navbar currentPath="/news" />
+
+  <div class="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="border-b border-white/10 pb-12 mb-16">
+      <span class="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-3">
+        PRESS & FESTIVAL DISPATCHES
+      </span>
+      <h1 class="text-6xl sm:text-7xl font-bebas text-white">NEWS & HEADLINES.</h1>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+      {news.map((item) => (
+        <div class="bg-[#111] p-6 rounded-xl border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-2 text-[10px] font-mono mb-2">
+              <span class="bg-[#F5A623] text-black px-2 py-0.5 font-bold uppercase rounded">{item.tag}</span>
+              <span class="text-[#888]">{item.date}</span>
+            </div>
+            <h3 class="font-bebas text-2xl text-white mb-2 leading-tight">{item.title}</h3>
+            <p class="text-xs text-[#A0A0A0] leading-relaxed">{item.excerpt}</p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-mono text-[#F5A623]">
+            {item.source}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

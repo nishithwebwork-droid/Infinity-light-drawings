@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const clients = [
+  { name: 'NFDC', sub: 'National Film Dev Corporation' },
+  { name: 'APPLAUSE', sub: 'Applause Entertainment' },
+  { name: 'SONY LIV', sub: 'Streaming OTT' },
+  { name: 'ZEE5', sub: 'Digital Network' },
+  { name: 'GRAM VIKAS', sub: 'Rural Dev Foundation' },
+  { name: 'ORMAS', sub: 'Rural Marketing Org' },
+  { name: 'MO SCHOOL', sub: 'Odisha Govt Initiative' },
+  { name: 'ODISHA TOURISM', sub: 'Dept of Tourism' },
+  { name: 'UNICEF', sub: 'United Nations' },
+  { name: 'TATA STEEL', sub: 'Industrial Conglomerate' },
+  { name: 'WATERAID', sub: 'Clean Water Initiative' },
+  { name: 'JSPL', sub: 'Jindal Steel & Power' }
+];
+---
+
+<Layout title="Clients & Partners - Infinity Light Drawings">
+  <Navbar currentPath="/clients" />
+
+  <div class="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="border-b border-white/10 pb-12 mb-16">
+      <span class="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-3">
+        COLLABORATORS & INSTITUTIONS
+      </span>
+      <h1 class="text-6xl sm:text-7xl font-bebas text-white">OUR CLIENTS.</h1>
+      <p class="text-sm text-[#A0A0A0] max-w-2xl mt-4 font-light">
+        Trusted by leading entertainment networks, global brands, and humanitarian organizations.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-24">
+      {clients.map((c) => (
+        <div class="p-8 rounded-xl bg-[#111] border border-white/10 flex flex-col justify-center items-center text-center">
+          <span class="font-bebas text-2xl text-white tracking-wider">{c.name}</span>
+          <span class="text-[10px] font-mono text-[#666] uppercase mt-1">{c.sub}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

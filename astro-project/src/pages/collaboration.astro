@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Collaboration & Co-Production - Infinity Light Drawings">
+  <Navbar currentPath="/collaboration" />
+
+  <div class="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="border-b border-white/10 pb-12 mb-16">
+      <span class="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-3">
+        CO-PRODUCTION & LINE PRODUCTION
+      </span>
+      <h1 class="text-6xl sm:text-7xl font-bebas text-white">COLLABORATION.</h1>
+      <p class="text-sm text-[#A0A0A0] max-w-2xl mt-4 font-light">
+        Partner with Infinity Light Drawings as your creative co-producer, Indian service production unit, or post-production finishing house.
+      </p>
+    </div>
+
+    <!-- Models -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+      <div class="bg-[#111] p-8 rounded-xl border border-white/10">
+        <span class="text-[10px] font-mono text-[#F5A623] tracking-widest uppercase block mb-2">MODEL 01</span>
+        <h3 class="font-bebas text-2xl text-white mb-3">EQUITY CO-PRODUCTION</h3>
+        <p class="text-xs text-[#A0A0A0] leading-relaxed">
+          For independent filmmakers and international auteurs seeking a creative co-producer in India. We co-invest production resources, camera packages, and talent attachments.
+        </p>
+      </div>
+
+      <div class="bg-[#111] p-8 rounded-xl border border-white/10">
+        <span class="text-[10px] font-mono text-[#F5A623] tracking-widest uppercase block mb-2">MODEL 02</span>
+        <h3 class="font-bebas text-2xl text-white mb-3">INDIA SERVICE & LINE PRODUCTION</h3>
+        <p class="text-xs text-[#A0A0A0] leading-relaxed">
+          Full-service physical production execution for international studios and Mumbai commercial houses shooting across Eastern India.
+        </p>
+      </div>
+
+      <div class="bg-[#111] p-8 rounded-xl border border-white/10">
+        <span class="text-[10px] font-mono text-[#F5A623] tracking-widest uppercase block mb-2">MODEL 03</span>
+        <h3 class="font-bebas text-2xl text-white mb-3">POST-PRODUCTION FINISHING</h3>
+        <p class="text-xs text-[#A0A0A0] leading-relaxed">
+          State-of-the-art DaVinci Resolve color grading suites and immersive Dolby Atmos audio post for DCP theatrical and streaming deliverables.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

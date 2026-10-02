@@ -1,0 +1,62 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
+const navLinks = [
+  { label: 'WORK', href: '/work' },
+  { label: 'COLLABORATION', href: '/collaboration' },
+  { label: 'CLIENTS', href: '/clients' },
+  { label: 'NEWS', href: '/news' },
+  { label: 'ABOUT', href: '/about' },
+  { label: 'CONTACT', href: '/contact' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/10 py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 rounded border border-[#F5A623]/40 bg-black/60 flex items-center justify-center text-[#F5A623] group-hover:border-[#F5A623] transition-colors">
+        <span class="text-xs font-mono font-bold">🎬</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-bebas tracking-wider text-xl text-white group-hover:text-[#F5A623] transition-colors leading-tight">
+          INFINITY DRAWINGS
+        </span>
+        <span class="text-[9px] tracking-[0.25em] text-[#A0A0A0] uppercase font-mono">
+          LIGHT DRAWINGS STUDIO
+        </span>
+      </div>
+    </a>
+
+    <!-- Nav Links -->
+    <nav class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`text-xs font-mono tracking-[0.2em] transition-all relative py-1 ${
+            currentPath === link.href
+              ? 'text-[#F5A623] font-semibold'
+              : 'text-[#A0A0A0] hover:text-white'
+          }`}
+        >
+          {link.label}
+          {currentPath === link.href && (
+            <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#F5A623] shadow-[0_0_8px_#F5A623]" />
+          )}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Header CTA -->
+    <a
+      href="/contact"
+      class="px-4 py-2 bg-[#F5A623] hover:bg-[#FFAA1D] text-black text-xs font-mono font-bold tracking-wider rounded transition-all shadow-[0_0_20px_rgba(245,166,35,0.25)]"
+    >
+      INITIATE FILM &rarr;
+    </a>
+  </div>
+</header>

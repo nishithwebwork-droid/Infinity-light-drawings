@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Marquee from '../components/Marquee.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+
+<Layout title="Infinity Light Drawings - Filmmaking Studio">
+  <Navbar currentPath="/" />
+
+  <!-- 1. HERO SECTION -->
+  <section class="min-h-[92vh] flex flex-col justify-between pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto w-full relative z-10">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#F5A623] shadow-[0_0_12px_#F5A623] animate-pulse"></span>
+        <span class="text-xs font-mono tracking-[0.3em] text-[#F5A623] uppercase">
+          STUDIO ARCHIVE &bull; MUMBAI &bull; ODISHA
+        </span>
+      </div>
+
+      <div class="space-y-1">
+        <h1 class="font-bebas text-7xl sm:text-9xl md:text-[10rem] tracking-tight text-white leading-[0.88] select-none">
+          INFINITY LIGHT
+        </h1>
+        <h1 class="font-bebas text-7xl sm:text-9xl md:text-[10rem] tracking-tight text-[#F5A623] leading-[0.88] select-none">
+          DRAWINGS
+        </h1>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-end justify-between gap-8 relative z-10">
+      <div class="max-w-2xl">
+        <p class="text-xs font-mono text-[#A0A0A0] tracking-[0.25em] uppercase mb-2">
+          THE ARTISTIC MANIFESTO
+        </p>
+        <blockquote class="text-xl sm:text-2xl font-serif italic text-[#F5A623] border-l-2 border-[#F5A623] pl-4">
+          "EVERY FILM IS AN EXPERIENCE, AND EVERY EXPERIENCE CAN BE UNFORGETTABLE."
+        </blockquote>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a
+          href="/work"
+          class="px-6 py-3 bg-[#F5A623] hover:bg-[#FFAA1D] text-black font-mono font-bold text-xs tracking-widest uppercase rounded"
+        >
+          EXPLORE FILMOGRAPHY &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. MARQUEE TICKER -->
+  <Marquee />
+
+  <!-- 3. INTRODUCTION -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-white/10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6 space-y-6">
+        <span class="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block">
+          THE VISIONARY &bull; FOUNDER
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-bebas tracking-wide text-white leading-tight">
+          "CINEMA HAS BEEN A FRIEND, A COMPANION, A GURU—EVERYTHING TO ME."
+        </h2>
+        <p class="text-base text-[#CCCCCC] font-light leading-relaxed">
+          Welcome! I'm Nishith Sahasransu Ray, a filmmaker driven by a passion for stories that resonate beyond the screen. Here, you're looking for someone who can bring your vision to life—and that's exactly what I do.
+        </p>
+        <div class="pt-6 border-t border-white/10">
+          <span class="font-bebas text-2xl tracking-widest text-[#F5A623] block">
+            NISHITH S. RAY
+          </span>
+          <span class="text-[10px] font-mono text-[#888888] tracking-widest uppercase">
+            FILMMAKER & CREATIVE DIRECTOR
+          </span>
+        </div>
+      </div>
+      <div class="lg:col-span-6">
+        <div class="aspect-[4/5] rounded-xl overflow-hidden bg-[#111] border border-white/10">
+          <img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+            alt="Nishith Sahasransu Ray"
+            class="w-full h-full object-cover grayscale contrast-125"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURED WORKS -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-white/10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div>
+        <span class="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-2">
+          FEATURED PRODUCTIONS
+        </span>
+        <h2 class="text-5xl sm:text-6xl font-bebas tracking-wide text-white leading-none">
+          RAW FRAMES - OUR PORTFOLIO
+        </h2>
+      </div>
+      <a href="/work" class="text-xs font-mono text-[#F5A623] hover:underline">
+        VIEW ALL WORKS &rarr;
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <ProjectCard
+        title="ZWIGATO"
+        category="Feature Film"
+        director="Nandita Das"
+        role="Assistant Director"
+        year="2023"
+        aspect="2.39:1 Anamorphic"
+        image="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80"
+        logline="An ex-factory floor manager finds himself navigating the relentless gig economy as a food delivery courier in Bhubaneswar."
+      />
+      <ProjectCard
+        title="JENGABURU"
+        category="Climate Thriller"
+        director="Nila Madhab Panda"
+        role="Assistant Director"
+        year="2023"
+        aspect="2:1 Univisium"
+        image="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1200&q=80"
+        logline="India's first ecological thriller chronicling illegal bauxite mining, tribal displacement, and international conspiracy."
+      />
+    </div>
+  </section>
+
+  <!-- 5. STATS -->
+  <section class="py-20 bg-[#070707] border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="font-bebas text-7xl text-[#F5A623]">5+</div>
+        <div class="font-bebas text-xl text-white">INDEPENDENT FILMS</div>
+        <div class="text-[10px] font-mono text-[#888]">PRODUCED & DIRECTED</div>
+      </div>
+      <div>
+        <div class="font-bebas text-7xl text-[#F5A623]">10+</div>
+        <div class="font-bebas text-xl text-white">GLOBAL FESTIVALS</div>
+        <div class="text-[10px] font-mono text-[#888]">SELECTIONS & AWARDS</div>
+      </div>
+      <div>
+        <div class="font-bebas text-7xl text-[#F5A623]">7+</div>
+        <div class="font-bebas text-xl text-white">YEARS ARTISTRY</div>
+        <div class="text-[10px] font-mono text-[#888]">INDUSTRY RECORD</div>
+      </div>
+      <div>
+        <div class="font-bebas text-7xl text-[#F5A623]">25+</div>
+        <div class="font-bebas text-xl text-white">COMMERCIALS</div>
+        <div class="text-[10px] font-mono text-[#888]">DELIVERED NARRATIVES</div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

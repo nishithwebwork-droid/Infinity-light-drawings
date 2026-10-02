@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" width="100%" height="100%">
+  <!-- Fisheries & Animal Resources Development Department, Government of Odisha -->
+  <rect width="340" height="340" fill="#FFFFFF"/>
+
+  <!-- Outer deep navy circle -->
+  <circle cx="170" cy="170" r="150" fill="#0C4582"/>
+  <circle cx="170" cy="170" r="144" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="170" cy="170" r="102" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Inner white circular medallion -->
+  <circle cx="170" cy="170" r="100" fill="#FFFFFF"/>
+
+  <!-- Circular Arch Text -->
+  <defs>
+    <path id="fardTopArc" d="M 45 170 A 125 125 0 0 1 295 170" fill="none"/>
+    <path id="fardBottomArc" d="M 45 170 A 125 125 0 0 0 295 170" fill="none"/>
+  </defs>
+
+  <!-- Top Odia script heading -->
+  <text fill="#FFFFFF" font-family="'Arial', sans-serif" font-size="12" font-weight="700" letter-spacing="1">
+    <textPath href="#fardTopArc" startOffset="50%" text-anchor="middle">
+      ମତ୍ସ୍ୟ ଓ ପ୍ରାଣୀସମ୍ପଦ ବିକାଶ ବିଭାଗ, ଓଡ଼ିଶା ସରକାର
+    </textPath>
+  </text>
+
+  <!-- Bottom English department subtitle -->
+  <text fill="#FFFFFF" font-family="'Arial', 'Helvetica Neue', sans-serif" font-size="9" font-weight="800" letter-spacing="0.8">
+    <textPath href="#fardBottomArc" startOffset="50%" text-anchor="middle">
+      FISHERIES &amp; ARD DEPT. • GOVT. OF ODISHA
+    </textPath>
+  </text>
+
+  <!-- Central Seal Artwork: Cow and Calf with Fish beneath National Emblem -->
+  <g transform="translate(170, 170)">
+    <!-- Ashoka Lion Capitol / National Emblem top -->
+    <g transform="translate(0, -66) scale(0.65)" fill="#0C4582">
+      <rect x="-10" y="0" width="20" height="14" rx="1"/>
+      <circle cx="0" cy="-6" r="5"/>
+      <polygon points="-8,-4 0,-14 8,-4"/>
+      <rect x="-14" y="14" width="28" height="3" fill="#0C4582"/>
+    </g>
+
+    <!-- Mother Cow and small nursing calf silhouette -->
+    <g transform="translate(-8, -10) scale(0.85)" fill="#0C4582">
+      <!-- Cow Body and Head -->
+      <path d="M 30 10 C 32 -4, 20 -18, 5 -18 C -15 -18, -35 -5, -45 12 C -50 20, -50 35, -42 45 L -42 60 L -34 60 L -34 45 L -10 45 L -10 60 L -2 60 L -2 38 C 10 38, 25 35, 30 25 L 30 60 L 38 60 L 38 30 C 45 28, 48 18, 42 12 Z"/>
+      <!-- Small nursing calf -->
+      <path d="M -15 32 C -18 24, -26 24, -30 28 C -34 32, -34 45, -28 50 L -28 60 L -24 60 L -24 52 L -12 52 L -12 60 L -8 60 L -8 42 Z" fill="#20639B"/>
+    </g>
+
+    <!-- Fish in wavy water at bottom of medallion -->
+    <g transform="translate(0, 52)" stroke="#0C4582" stroke-width="2.5" fill="none">
+      <!-- Fish silhouette -->
+      <path d="M -26 0 C -12 -12, 12 -12, 26 0 C 12 12, -12 12, -26 0 Z M 26 0 L 38 -10 L 34 0 L 38 10 Z" fill="#0C4582"/>
+      <circle cx="-16" cy="-2" r="2" fill="#FFFFFF"/>
+      <!-- Water ripples -->
+      <path d="M -40 18 Q -20 12, 0 18 Q 20 24, 40 18" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

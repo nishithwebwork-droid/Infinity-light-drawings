@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contact Studio - Infinity Light Drawings">
+  <Navbar currentPath="/contact" />
+
+  <div class="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="border-b border-white/10 pb-12 mb-16">
+      <span class="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-3">
+        INITIATE CONVERSATION
+      </span>
+      <h1 class="text-6xl sm:text-7xl font-bebas text-white">CONTACT THE STUDIO.</h1>
+      <p class="text-sm text-[#A0A0A0] max-w-2xl mt-4 font-light">
+        Direct studio hotline, co-production consultations, and physical studio locations across Mumbai and Bhubaneswar.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-[#111] p-8 rounded-xl border border-white/10">
+          <span class="text-xs font-mono text-[#F5A623] tracking-widest uppercase block mb-2">HOTLINE</span>
+          <div class="text-xl font-mono text-white mb-4">+91 98201 48920</div>
+          <div class="text-xs font-mono text-[#888]">Direct to Director's Office</div>
+        </div>
+
+        <div class="bg-[#111] p-8 rounded-xl border border-white/10">
+          <span class="text-xs font-mono text-[#F5A623] tracking-widest uppercase block mb-2">MUMBAI STUDIO</span>
+          <p class="text-sm text-white">Next to Billabong High School, Jankalyan Nagar, Malad West, Mumbai - 400095</p>
+        </div>
+
+        <div class="bg-[#111] p-8 rounded-xl border border-white/10">
+          <span class="text-xs font-mono text-[#F5A623] tracking-widest uppercase block mb-2">ODISHA HUB</span>
+          <p class="text-sm text-white">Plot 142/B, Saheed Nagar, Bhubaneswar - 751007</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 bg-[#111] p-8 rounded-xl border border-white/10">
+        <h3 class="font-bebas text-3xl text-white mb-6">PROJECT TRANSMISSION</h3>
+        <form class="space-y-4">
+          <div>
+            <label class="block text-xs font-mono text-[#888] mb-1">PRODUCER / CLIENT NAME</label>
+            <input type="text" class="w-full bg-[#181818] border border-white/10 rounded px-4 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-[#888] mb-1">EMAIL ADDRESS</label>
+            <input type="email" class="w-full bg-[#181818] border border-white/10 rounded px-4 py-2.5 text-sm text-white" />
+          </div>
+          <div>
+            <label class="block text-xs font-mono text-[#888] mb-1">PRODUCTION BRIEF / SYNOPSIS</label>
+            <textarea rows="4" class="w-full bg-[#181818] border border-white/10 rounded px-4 py-2.5 text-sm text-white"></textarea>
+          </div>
+          <button type="button" class="w-full py-3 bg-[#F5A623] text-black font-mono font-bold text-xs uppercase tracking-wider rounded">
+            TRANSMIT DOSSIER &rarr;
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

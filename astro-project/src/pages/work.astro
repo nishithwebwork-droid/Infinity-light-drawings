@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: "ZWIGATO",
+    category: "Feature Film",
+    director: "Nandita Das",
+    role: "Assistant Director",
+    year: "2023",
+    aspect: "2.39:1",
+    image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=1200&q=80",
+    logline: "An ex-factory floor manager finds himself navigating the relentless gig economy as a food delivery courier."
+  },
+  {
+    title: "JENGABURU",
+    category: "Climate Thriller",
+    director: "Nila Madhab Panda",
+    role: "Assistant Director",
+    year: "2023",
+    aspect: "2:1",
+    image: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=1200&q=80",
+    logline: "India's first ecological thriller chronicling illegal bauxite mining, tribal displacement, and conspiracy."
+  },
+  {
+    title: "KAAGI - THE LAST DROP",
+    category: "Documentary",
+    director: "Nishith S. Ray",
+    role: "Director & Cinematographer",
+    year: "2023",
+    aspect: "2.39:1",
+    image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80",
+    logline: "When monsoons receded two months early, an indigenous community in Kalahandi faced an unprecedented test."
+  },
+  {
+    title: "NANDA MASTER'S SECRET",
+    category: "Docu-Drama",
+    director: "Nishith S. Ray",
+    role: "Director & Editor",
+    year: "2022",
+    aspect: "1.85:1",
+    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80",
+    logline: "An intimate portrait of Padma Shri Nanda Prusty, who spent 75 years teaching generations under an open-air village tree."
+  },
+  {
+    title: "ECHOES OF HERITAGE",
+    category: "Ad Film & TVC",
+    director: "Nishith S. Ray",
+    role: "Director & Creative Producer",
+    year: "2024",
+    aspect: "16:9 HDR",
+    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1200&q=80",
+    logline: "A symphonic journey across Konark sun dials, shimmering Chilika waters, and mist-laden Deomali peaks."
+  },
+  {
+    title: "FORGED IN FIRE",
+    category: "Corporate Film",
+    director: "Nishith S. Ray",
+    role: "Director",
+    year: "2023",
+    aspect: "2.39:1",
+    image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
+    logline: "From blast furnaces to tribal archery academies, highlighting one hundred years of industrial fortitude."
+  }
+];
+---
+
+<Layout title="Our Work - Infinity Light Drawings">
+  <Navbar currentPath="/work" />
+
+  <div class="pt-28 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="border-b border-white/10 pb-12 mb-12">
+      <span class="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-3">
+        COMPLETE FILMOGRAPHY
+      </span>
+      <h1 class="text-6xl sm:text-7xl font-bebas text-white">OUR WORK.</h1>
+      <p class="text-sm text-[#A0A0A0] max-w-xl mt-4 font-light">
+        A curated selection of narrative features, ecological documentaries, broadcast commercials, and corporate brand films.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((p) => (
+        <ProjectCard {...p} />
+      ))}
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

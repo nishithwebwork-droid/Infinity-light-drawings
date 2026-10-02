@@ -1,0 +1,30 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Infinity Light Drawings - Filmmaking Studio",
+  description = "Cinematic and modern filmmaking company portfolio featuring feature films, documentaries, commercial reels, and production services."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="bg-[#0A0A0A] text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/global.css" />
+  </head>
+  <body class="bg-[#0A0A0A] text-[#E2E8F0] antialiased selection:bg-[#F5A623] selection:text-black">
+    <slot />
+  </body>
+</html>

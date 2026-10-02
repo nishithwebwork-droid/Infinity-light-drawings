@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Rounded App Squircle boundary (matching uploaded image with subtle dark border) -->
+    <clipPath id="sonylivClip">
+      <rect x="25" y="25" width="450" height="450" rx="95" ry="95" />
+    </clipPath>
+
+    <!-- Deep Midnight Dark Blue / Indigo base -->
+    <linearGradient id="bgDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050B3B" />
+      <stop offset="40%" stop-color="#0A1045" />
+      <stop offset="70%" stop-color="#120835" />
+      <stop offset="100%" stop-color="#080214" />
+    </linearGradient>
+
+    <!-- Top-left to middle Electric Cyan / Blue Wave glow -->
+    <radialGradient id="cyanArc" cx="10%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#00BAFF" stop-opacity="1" />
+      <stop offset="40%" stop-color="#0062FF" stop-opacity="0.75" />
+      <stop offset="75%" stop-color="#0A1045" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Mid-field flowing Magenta / Purple ribbon across the diagonal -->
+    <linearGradient id="purpleRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7B2CBF" stop-opacity="0" />
+      <stop offset="30%" stop-color="#9D4EDD" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#C724B1" stop-opacity="0.95" />
+      <stop offset="85%" stop-color="#E01A4F" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#FF5400" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Bottom-right Radiant Sunset Orange / Amber Bloom -->
+    <radialGradient id="sunsetGlow" cx="90%" cy="78%" r="60%">
+      <stop offset="0%" stop-color="#FF5000" stop-opacity="1" />
+      <stop offset="35%" stop-color="#FF7900" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#D00000" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#370617" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Golden yellow gradient for letter 'l' and dot/stem of 'i' -->
+    <linearGradient id="goldLetter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF066" />
+      <stop offset="25%" stop-color="#FFD600" />
+      <stop offset="75%" stop-color="#FF9E00" />
+      <stop offset="100%" stop-color="#F37900" />
+    </linearGradient>
+
+    <!-- Checkmark 'v' luminous layered gold tick gradients -->
+    <linearGradient id="vOuterGlow" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#FFFBEA" />
+      <stop offset="40%" stop-color="#FFDE43" />
+      <stop offset="85%" stop-color="#FFA200" />
+      <stop offset="100%" stop-color="#E85D04" />
+    </linearGradient>
+
+    <linearGradient id="vInnerLayer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#FFEAA5" />
+      <stop offset="70%" stop-color="#FFC000" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer container with squircle border -->
+  <rect x="23" y="23" width="454" height="454" rx="97" ry="97" fill="none" stroke="#261E47" stroke-width="3" />
+
+  <g clip-path="url(#sonylivClip)">
+    <!-- 1. Background Dark Base -->
+    <rect x="25" y="25" width="450" height="450" fill="url(#bgDeep)" />
+
+    <!-- 2. Electric Cyan ambient illumination top-left -->
+    <circle cx="110" cy="170" r="230" fill="url(#cyanArc)" />
+
+    <!-- 3. Flowing iridescent wave / swoop curve from left to bottom right -->
+    <path d="M 25 150 C 90 260, 200 310, 310 320 C 390 325, 440 350, 480 430 L 480 480 L 25 480 Z" 
+          fill="url(#purpleRibbon)" opacity="0.9" />
+
+    <!-- 4. Sunset orange/yellow luminous bloom bottom-right -->
+    <circle cx="390" cy="380" r="190" fill="url(#sunsetGlow)" />
+
+    <!-- 5. "SONY" Official Wordmark (Upper Center, Pure White Serif Typography) -->
+    <!-- S -->
+    <path d="M 172 154 C 172 151 167 147 156 147 C 145 147 140 151 140 158 C 140 166 146 170 160 176 C 176 182 186 191 186 203 C 186 219 172 229 154 229 C 134 229 125 218 124 205 L 136 205 C 137 214 144 219 155 219 C 164 219 172 214 172 204 C 172 195 166 189 152 184 C 137 177 129 169 129 157 C 129 145 139 137 156 137 C 172 137 180 146 182 154 Z" 
+          fill="#FFFFFF" />
+
+    <!-- O -->
+    <path d="M 233 136 C 259 136 275 155 275 183 C 275 211 259 230 233 230 C 208 230 192 211 192 183 C 192 155 208 136 233 136 Z M 233 146 C 215 146 205 161 205 183 C 205 205 215 220 233 220 C 252 220 262 205 262 183 C 262 161 252 146 233 146 Z" 
+          fill="#FFFFFF" />
+
+    <!-- N -->
+    <path d="M 288 139 L 302 139 L 334 204 L 334 139 L 346 139 L 346 227 L 333 227 L 300 160 L 300 227 L 288 227 Z" 
+          fill="#FFFFFF" />
+
+    <!-- Y -->
+    <path d="M 360 139 L 380 181 L 400 139 L 414 139 L 387 196 L 387 227 L 374 227 L 374 196 L 346 139 Z" 
+          fill="#FFFFFF" />
+
+    <!-- 6. "liv" Branding (Lower center, bold rounded golden marks) -->
+    <!-- 'l' (Golden vertical bar) -->
+    <rect x="168" y="292" width="26" height="108" rx="6" fill="url(#goldLetter)" />
+
+    <!-- 'i' (Dot and vertical stem) -->
+    <circle cx="225" cy="303" r="12.5" fill="url(#goldLetter)" />
+    <rect x="212" y="328" width="26" height="72" rx="6" fill="url(#goldLetter)" />
+
+    <!-- 'v' (The Signature Sony LIV checkmark / tick symbol) -->
+    <!-- Multi-layered glowing golden tick -->
+    <!-- Background layer -->
+    <path d="M 248 344 C 245 339 248 333 255 333 C 259 333 263 336 267 342 L 291 386 C 294 391 300 392 304 388 L 342 304 C 345 296 351 288 358 288 C 365 288 368 293 365 302 L 318 401 C 310 418 288 421 275 404 Z" 
+          fill="url(#vOuterGlow)" />
+
+    <!-- Foreground high-contrast highlight ribbon inside tick -->
+    <path d="M 252 346 C 250 342 253 338 258 338 C 261 338 264 340 268 346 L 291 387 C 294 391 299 392 303 388 L 338 307 C 342 301 346 295 352 295 C 357 295 360 299 357 306 L 314 400 C 307 414 289 416 278 402 Z" 
+          fill="url(#vInnerLayer)" opacity="0.95" />
+  </g>
+</svg>

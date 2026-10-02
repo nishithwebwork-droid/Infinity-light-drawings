@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <!-- ORMAS Logo: Soft pastel cyan/blue radial ring with dark blue ORMAS center badge -->
+  <rect width="300" height="300" fill="#FFFFFF"/>
+
+  <!-- Outer soft cyan concentric circle halo -->
+  <circle cx="150" cy="150" r="130" fill="#E8F4F8" stroke="#D0EBF5" stroke-width="2"/>
+  <circle cx="150" cy="150" r="115" fill="none" stroke="#77C2DC" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Central Solid Sky-Blue Disc -->
+  <circle cx="150" cy="150" r="90" fill="#67B7D1"/>
+
+  <!-- ORMAS Bold White Typography -->
+  <text x="150" y="145" 
+        text-anchor="middle" 
+        fill="#FFFFFF" 
+        font-family="'Arial Black', 'Impact', sans-serif" 
+        font-size="44" 
+        font-weight="900" 
+        letter-spacing="1">
+    ORMAS
+  </text>
+
+  <!-- Subtitles inside badge -->
+  <text x="150" y="166" 
+        text-anchor="middle" 
+        fill="#FFFFFF" 
+        font-family="'Arial', sans-serif" 
+        font-size="9" 
+        font-weight="700" 
+        letter-spacing="0.5">
+    ODISHA RURAL DEVELOPMENT
+  </text>
+  <text x="150" y="178" 
+        text-anchor="middle" 
+        fill="#FFFFFF" 
+        font-family="'Arial', sans-serif" 
+        font-size="8" 
+        font-weight="700" 
+        letter-spacing="0.5">
+    &amp; MARKETING SOCIETY
+  </text>
+  <text x="150" y="190" 
+        text-anchor="middle" 
+        fill="#FFFFFF" 
+        font-family="'Arial', sans-serif" 
+        font-size="7.5" 
+        font-weight="500" 
+        font-style="italic">
+    (A Government of Odisha Society)
+  </text>
+</svg>
