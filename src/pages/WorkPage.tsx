@@ -1,10 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { 
-  Search, 
-  Filter, 
   Play, 
   Award, 
-  SlidersHorizontal, 
   ArrowUpRight,
   Film,
   Camera,
@@ -17,7 +14,7 @@ import {
   Edit3
 } from 'lucide-react';
 import { PROJECTS, AD_FILM_ARCHIVES } from '../data/portfolioData';
-import { Project, ProjectCategory, AdFilmDriveArchive } from '../types';
+import { Project, AdFilmDriveArchive } from '../types';
 
 interface WorkPageProps {
   onSelectProject: (project: Project) => void;
@@ -25,10 +22,6 @@ interface WorkPageProps {
 }
 
 export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateFilm }) => {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState<'featured' | 'year-desc' | 'year-asc' | 'title'>('featured');
-
   // Ad Films & Corporate Archives Drive links state (persisted in localStorage for convenience)
   const [driveLinks, setDriveLinks] = useState<Record<string, string>>(() => {
     try {
@@ -61,33 +54,8 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateF
     setTempDriveUrl(currentLink || driveLinks[id] || '');
   };
 
-  const categories: { key: ProjectCategory; label: string }[] = [
-    { key: 'all', label: 'All Projects' },
-    { key: 'feature', label: 'Feature Films' },
-    { key: 'documentary', label: 'Documentaries' },
-    { key: 'commercial', label: 'Ad Films & TVCs' },
-    { key: 'corporate', label: 'Corporate Films' },
-    { key: 'ngo', label: 'NGO & Social' },
-    { key: 'short', label: 'Short Films' }
-  ];
-
   const filteredProjects = useMemo(() => {
     let result = [...PROJECTS];
-
-    if (selectedCategory !== 'all') {
-      result = result.filter(p => p.category === selectedCategory);
-    }
-
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      result = result.filter(p => 
-        p.title.toLowerCase().includes(q) ||
-        p.director.toLowerCase().includes(q) ||
-        p.role.toLowerCase().includes(q) ||
-        p.logline.toLowerCase().includes(q) ||
-        (p.clientOrStudio && p.clientOrStudio.toLowerCase().includes(q))
-      );
-    }
 
     // Filmography sequence: Marquee titles (#1-#3), Last Drop (#4), Baghuni (#5), Trapped (#6), Dustbin (#7)
     const MARQUEE_PRIORITY: Record<string, number> = {
@@ -101,20 +69,14 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateF
     };
 
     result.sort((a, b) => {
-      // For curated featured order or default latest order, place marquee titles at first
-      if (sortBy === 'featured' || sortBy === 'year-desc') {
-        const pA = MARQUEE_PRIORITY[a.id] || 999;
-        const pB = MARQUEE_PRIORITY[b.id] || 999;
-        if (pA !== pB) return pA - pB;
-        return parseInt(b.year) - parseInt(a.year);
-      }
-      if (sortBy === 'year-asc') return parseInt(a.year) - parseInt(b.year);
-      if (sortBy === 'title') return a.title.localeCompare(b.title);
-      return 0;
+      const pA = MARQUEE_PRIORITY[a.id] || 999;
+      const pB = MARQUEE_PRIORITY[b.id] || 999;
+      if (pA !== pB) return pA - pB;
+      return parseInt(b.year) - parseInt(a.year);
     });
 
     return result;
-  }, [selectedCategory, searchQuery, sortBy]);
+  }, []);
 
   return (
     <div id="work-page" className="min-h-screen bg-[#0A0A0A] text-white pt-28 pb-24 px-4 sm:px-6 lg:px-8">
@@ -144,60 +106,6 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateF
               >
                 PITCH A FILM
               </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Filter & Search Bar */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-12 bg-[#101010] p-4 rounded-xl border border-white/10">
-          {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 lg:pb-0 scrollbar-none">
-            {categories.map(cat => (
-              <button
-                key={cat.key}
-                onClick={() => setSelectedCategory(cat.key)}
-                className={`px-3.5 py-2 rounded text-xs font-mono tracking-wider whitespace-nowrap transition-colors cursor-pointer ${
-                  selectedCategory === cat.key
-                    ? 'bg-[#F5A623] text-black font-bold'
-                    : 'text-[#A0A0A0] hover:text-white hover:bg-white/5'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-            <a
-              href="#ad-films-drive-archives-section"
-              className="px-3.5 py-2 rounded text-xs font-mono tracking-wider whitespace-nowrap transition-colors text-[#F5A623] hover:text-white hover:bg-[#F5A623]/10 border border-[#F5A623]/30 flex items-center gap-1.5 ml-1"
-            >
-              <HardDrive className="w-3.5 h-3.5" />
-              <span>Drive Archives (8)</span>
-            </a>
-          </div>
-
-          {/* Search & Sort */}
-          <div className="flex items-center gap-3">
-            <div className="relative flex-1 sm:w-64">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#666666]" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by title, director..."
-                className="w-full bg-[#181818] border border-white/10 rounded px-9 py-2 text-xs font-mono text-white placeholder-[#666666] focus:outline-none focus:border-[#F5A623]"
-              />
-            </div>
-
-            <div className="relative">
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
-                className="bg-[#181818] border border-white/10 rounded px-3 py-2 text-xs font-mono text-[#E0E0E0] focus:outline-none focus:border-[#F5A623] cursor-pointer"
-              >
-                <option value="featured">Marquee First</option>
-                <option value="year-desc">Latest First</option>
-                <option value="year-asc">Oldest First</option>
-                <option value="title">Alphabetical</option>
-              </select>
             </div>
           </div>
         </div>

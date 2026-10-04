@@ -22,8 +22,6 @@ import {
   STUDIO_INFO, 
   PROJECTS, 
   BTS_ITEMS, 
-  CATEGORIZED_REELS, 
-  NEWS_ARTICLES, 
   CORE_TEAM, 
   CLIENT_PARTNERS, 
   TESTIMONIALS 
@@ -37,14 +35,13 @@ interface HomePageProps {
   onRouteChange: (route: string) => void;
   onSelectProject: (project: Project) => void;
   onSelectBTS: (item: BTSItem) => void;
-  onSelectNews: (article: NewsArticle) => void;
+  onSelectNews?: (article: NewsArticle) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
   onRouteChange,
   onSelectProject,
   onSelectBTS,
-  onSelectNews,
 }) => {
   const featuredProjects = PROJECTS.filter(p => p.featured);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -502,119 +499,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* 8. CATEGORIZED REEL PORTFOLIO */}
-      <section id="categorized-reels-section" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-white/10">
-        <div className="mb-12 sm:mb-16">
-          <div>
-            <span className="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-2">
-              PORTFOLIO SECTORS
-            </span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bebas tracking-wide text-white">
-              EXPERTISE
-            </h2>
-          </div>
-        </div>
-
-        {/* Large Format Imagery Grid with Headings Inside Images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {CATEGORIZED_REELS.map((reel, idx) => (
-            <div
-              key={reel.id}
-              id={`expertise-card-${reel.id}`}
-              onClick={() => onRouteChange('/work')}
-              className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#121212] border border-white/10 hover:border-[#F5A623]/80 transition-all duration-500 min-h-[380px] sm:min-h-[460px] md:min-h-[500px] cursor-pointer shadow-2xl flex flex-col justify-end p-6 sm:p-8 ${
-                idx === 0 ? 'sm:col-span-2 lg:col-span-2' : ''
-              }`}
-            >
-              {/* Full-bleed Large Image */}
-              <img
-                src={reel.image}
-                alt={reel.title}
-                className="absolute inset-0 w-full h-full object-cover grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                loading="lazy"
-              />
-
-              {/* Gradient Vignette for Legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10 group-hover:via-black/20 transition-all duration-500" />
-
-              {/* Heading Inside the Image */}
-              <div className="relative z-20">
-                <div className="flex items-center gap-2 mb-2 sm:mb-3">
-                  <span className="w-2 h-2 rounded-full bg-[#F5A623] shadow-[0_0_8px_#F5A623]" />
-                  <span className="text-xs font-mono text-[#F5A623] tracking-widest uppercase font-semibold">
-                    {reel.count}
-                  </span>
-                </div>
-                
-                <h3 className="font-bebas text-3xl sm:text-4xl md:text-5xl text-white group-hover:text-[#F5A623] tracking-wide leading-none transition-colors">
-                  {reel.title}
-                </h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 9. LIVE DISPATCH - NEWS & HEADLINES */}
-      <section id="news-dispatch-section" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-b border-white/10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <span className="text-xs font-mono text-[#F5A623] tracking-[0.3em] uppercase block mb-2">
-              STUDIO PRESS & CRITICAL ACCLAIM
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-bebas tracking-wide text-white">
-              LIVE DISPATCH - NEWS & HEADLINES
-            </h2>
-          </div>
-
-          <button
-            onClick={() => onRouteChange('/news')}
-            className="flex items-center gap-2 text-xs font-mono text-[#F5A623] hover:text-white tracking-widest transition-colors cursor-pointer"
-          >
-            <span>VIEW ALL DISPATCHES</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="space-y-4">
-          {NEWS_ARTICLES.map((article) => (
-            <div
-              key={article.id}
-              onClick={() => onSelectNews(article)}
-              className="p-6 sm:p-8 rounded-xl bg-[#111111] border border-white/10 hover:border-[#F5A623]/50 transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer group"
-            >
-              <div className="flex-1 space-y-2">
-                <div className="flex items-center gap-3 text-xs font-mono">
-                  <span className="px-2 py-0.5 rounded bg-[#F5A623] text-black font-bold uppercase">
-                    {article.tag}
-                  </span>
-                  <span className="text-[#A0A0A0]">{article.date}</span>
-                  <span className="text-[#666666]">&bull;</span>
-                  <span className="text-[#E0E0E0]">{article.source}</span>
-                </div>
-
-                <h3 className="font-bebas text-2xl sm:text-3xl text-white group-hover:text-[#F5A623] transition-colors leading-tight">
-                  {article.title}
-                </h3>
-
-                <p className="text-sm text-[#A0A0A0] font-light max-w-3xl line-clamp-2">
-                  {article.excerpt}
-                </p>
-              </div>
-
-              <div className="flex items-center gap-4 shrink-0">
-                <span className="text-xs font-mono text-[#A0A0A0] group-hover:text-white transition-colors">
-                  READ ARTICLE
-                </span>
-                <div className="w-10 h-10 rounded-full border border-white/20 group-hover:border-[#F5A623] group-hover:bg-[#F5A623] group-hover:text-black flex items-center justify-center text-white transition-all">
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
