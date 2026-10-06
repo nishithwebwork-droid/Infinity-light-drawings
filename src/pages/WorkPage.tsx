@@ -11,7 +11,7 @@ import {
   HardDrive,
   Link as LinkIcon,
   Check,
-  Edit3
+  X
 } from 'lucide-react';
 import { PROJECTS, AD_FILM_ARCHIVES } from '../data/portfolioData';
 import { Project, AdFilmDriveArchive } from '../types';
@@ -22,8 +22,8 @@ interface WorkPageProps {
 }
 
 export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateFilm }) => {
-  // Ad Films & Corporate Archives Drive links state (persisted in localStorage for convenience)
-  const [driveLinks, setDriveLinks] = useState<Record<string, string>>(() => {
+  // Ad Films & Corporate Archives Drive links state
+  const [driveLinks] = useState<Record<string, string>>(() => {
     try {
       const saved = localStorage.getItem('ild_ad_film_drive_links');
       if (saved) return JSON.parse(saved);
@@ -33,26 +33,7 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateF
     return {};
   });
 
-  const [editingDriveId, setEditingDriveId] = useState<string | null>(null);
-  const [tempDriveUrl, setTempDriveUrl] = useState<string>('');
-  const [copiedId, setCopiedId] = useState<string | null>(null);
-
-  const handleSaveDriveLink = (id: string) => {
-    const updated = { ...driveLinks, [id]: tempDriveUrl.trim() };
-    setDriveLinks(updated);
-    try {
-      localStorage.setItem('ild_ad_film_drive_links', JSON.stringify(updated));
-    } catch {
-      // localStorage fallback
-    }
-    setEditingDriveId(null);
-    setTempDriveUrl('');
-  };
-
-  const handleStartEditLink = (id: string, currentLink: string) => {
-    setEditingDriveId(id);
-    setTempDriveUrl(currentLink || driveLinks[id] || '');
-  };
+  const [selectedPoster, setSelectedPoster] = useState<{ src: string; title: string } | null>(null);
 
   const filteredProjects = useMemo(() => {
     let result = [...PROJECTS];
@@ -309,17 +290,47 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateF
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {AD_FILM_ARCHIVES.map((item) => {
               const currentLink = driveLinks[item.id] || item.driveLink;
-              const isEditing = editingDriveId === item.id;
 
               return (
                 <div
                   key={item.id}
                   id={`drive-archive-${item.id}`}
-                  className="bg-[#121212] hover:bg-[#161616] border border-white/10 hover:border-[#F5A623]/40 rounded-xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 group shadow-lg"
+                  className="bg-[#121212] hover:bg-[#161616] border border-white/10 hover:border-[#F5A623]/40 rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-300 group shadow-lg"
                 >
-                  <div>
-                    {/* Top Header Row */}
-                    <div className="flex items-start justify-between gap-4 mb-3">
+                  {/* Cover Photo Banner if present */}
+                  {item.coverImage && (
+                    <div 
+                      className="relative aspect-[16/9] w-full overflow-hidden bg-black/60 border-b border-white/10 group/cover cursor-pointer"
+                      onClick={() => setSelectedPoster({ src: item.coverImage!, title: item.title })}
+                      title={`Click to view full ${item.title} one-sheet poster`}
+                    >
+                      <img
+                        src={item.coverImage}
+                        alt={item.title}
+                        style={{ objectPosition: item.objectPosition || 'center top' }}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/70 via-transparent to-black/25 pointer-events-none" />
+                      
+                      <div className="absolute top-3 left-3 opacity-90 group-hover/cover:opacity-100 transition-opacity">
+                        <span className="px-2 py-0.5 text-[9px] font-mono uppercase bg-black/85 text-white/90 border border-white/15 font-bold rounded flex items-center gap-1 shadow">
+                          <Maximize2 className="w-2.5 h-2.5 text-[#F5A623]" />
+                          EXPAND POSTER
+                        </span>
+                      </div>
+
+                      <div className="absolute top-3 right-3 flex items-center gap-2">
+                        <span className="px-2 py-0.5 text-[9px] font-mono uppercase bg-black/85 text-[#F5A623] border border-[#F5A623]/40 font-bold rounded shadow">
+                          COVER ARCHIVE
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Top Header Row */}
+                      <div className="flex items-start justify-between gap-4 mb-3">
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#F5A623] bg-[#F5A623]/10 border border-[#F5A623]/25 px-2.5 py-1 rounded">
                           {item.categoryLabel}
@@ -363,94 +374,26 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateF
                     )}
                   </div>
 
-                  {/* Drive Link Section / Input Field */}
-                  <div className="pt-4 border-t border-white/10">
-                    {isEditing ? (
-                      <div className="space-y-2">
-                        <label className="text-[11px] font-mono text-[#F5A623] block">
-                          Enter Google Drive / Cloud Link for {item.title}:
-                        </label>
-                        <div className="flex items-center gap-2">
-                          <input
-                            type="url"
-                            value={tempDriveUrl}
-                            onChange={(e) => setTempDriveUrl(e.target.value)}
-                            placeholder="https://drive.google.com/drive/folders/..."
-                            className="flex-1 bg-black text-xs font-mono text-white px-3 py-2 rounded-lg border border-[#F5A623]/60 focus:outline-none focus:ring-1 focus:ring-[#F5A623]"
-                            autoFocus
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') handleSaveDriveLink(item.id);
-                              if (e.key === 'Escape') setEditingDriveId(null);
-                            }}
-                          />
-                          <button
-                            onClick={() => handleSaveDriveLink(item.id)}
-                            className="px-3 py-2 bg-[#F5A623] hover:bg-[#FFAA1D] text-black text-xs font-mono font-bold rounded-lg transition-colors cursor-pointer"
-                          >
-                            Save
-                          </button>
-                          <button
-                            onClick={() => setEditingDriveId(null)}
-                            className="px-2.5 py-2 bg-white/10 hover:bg-white/15 text-[#CCCCCC] text-xs font-mono rounded-lg transition-colors cursor-pointer"
-                          >
-                            Cancel
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex flex-wrap items-center justify-between gap-3">
-                        <div className="flex items-center gap-2 min-w-0 max-w-[65%]">
-                          <LinkIcon className="w-3.5 h-3.5 text-[#F5A623] shrink-0" />
-                          {currentLink ? (
-                            <a
-                              href={currentLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-xs font-mono text-[#F5A623] hover:underline truncate flex items-center gap-1 group/link"
-                              title={currentLink}
-                            >
-                              <span className="truncate">{currentLink}</span>
-                              <ExternalLink className="w-3 h-3 shrink-0 opacity-70 group-hover/link:opacity-100" />
-                            </a>
-                          ) : (
-                            <span className="text-xs font-mono text-[#666666] italic truncate">
-                              No Drive link added yet
-                            </span>
-                          )}
-                        </div>
+                  {/* Drive Link Section: Only OPEN DRIVE Button */}
+                  <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <LinkIcon className="w-3.5 h-3.5 text-[#F5A623] shrink-0" />
+                      <span className="text-xs font-mono text-[#888888] truncate">
+                        Google Drive Archive
+                      </span>
+                    </div>
 
-                        <div className="flex items-center gap-2">
-                          {currentLink ? (
-                            <>
-                              <a
-                                href={currentLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-3.5 py-1.5 rounded-lg bg-[#F5A623] hover:bg-[#FFAA1D] text-black text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-1.5 transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer"
-                              >
-                                <span>OPEN DRIVE</span>
-                                <ExternalLink className="w-3.5 h-3.5" />
-                              </a>
-                              <button
-                                onClick={() => handleStartEditLink(item.id, currentLink)}
-                                className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-[#AAAAAA] hover:text-white transition-colors cursor-pointer"
-                                title="Edit Drive Link"
-                              >
-                                <Edit3 className="w-3.5 h-3.5" />
-                              </button>
-                            </>
-                          ) : (
-                            <button
-                              onClick={() => handleStartEditLink(item.id, currentLink)}
-                              className="px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-[#F5A623] hover:text-black text-[#E0E0E0] text-xs font-mono tracking-wider uppercase flex items-center gap-1.5 border border-white/10 transition-all cursor-pointer"
-                            >
-                              <HardDrive className="w-3.5 h-3.5" />
-                              <span>+ ADD DRIVE LINK</span>
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    )}
+                    <a
+                      href={currentLink || 'https://drive.google.com'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-lg bg-[#F5A623] hover:bg-[#FFAA1D] text-black text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer shrink-0"
+                      title={`Open ${item.title} on Google Drive`}
+                    >
+                      <span>OPEN DRIVE</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
                   </div>
                 </div>
               );
@@ -458,6 +401,46 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateF
           </div>
         </div>
       </div>
+
+      {/* Full-Screen Poster Preview Lightbox Modal */}
+      {selectedPoster && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setSelectedPoster(null)}
+        >
+          <div 
+            className="relative max-w-2xl w-full max-h-[92vh] flex flex-col items-center bg-[#101010] border border-white/20 rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="w-full px-5 py-3.5 bg-[#141414] border-b border-white/10 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#F5A623] animate-pulse" />
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+                  {selectedPoster.title} — ONE-SHEET POSTER
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedPoster(null)}
+                className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-[#CCCCCC] hover:text-white transition-colors cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Poster Image Container */}
+            <div className="overflow-y-auto p-4 max-h-[82vh] w-full flex justify-center bg-black/50">
+              <img
+                src={selectedPoster.src}
+                alt={selectedPoster.title}
+                className="max-w-full max-h-[78vh] w-auto h-auto rounded-lg shadow-2xl object-contain border border-white/10"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

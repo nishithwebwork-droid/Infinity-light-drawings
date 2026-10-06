@@ -42,6 +42,9 @@ import btsLocationPlaybackImage from '../assets/images/regenerated_image_1789655
 import btsMorningExteriorRigImage from '../assets/images/regenerated_image_1789655940108.jpg';
 import btsOutdoorStagingImage from '../assets/images/regenerated_image_1789995419713.jpg';
 import adFilmsTvcsCoverImage from '../assets/images/regenerated_image_1790345050246.png';
+import ngoSocialImpactPosterImage from '../assets/images/ngo-social-impact-poster.jpg';
+import ngoSocialImpactImage from '../assets/images/regenerated_image_1791293162563.png';
+import shortFilmsCoverImage from '../assets/images/short_films_cover.jpg';
 const odishaTourismImage = adFilmsTvcsCoverImage;
 
 export const STUDIO_INFO = {
@@ -807,23 +810,15 @@ export const WORKFLOW_STEPS = [
 export const AD_FILM_ARCHIVES: AdFilmDriveArchive[] = [
   {
     id: 'ad-films-tvc-portfolio',
-    title: 'Ad films and tvc portfolio',
-    categoryLabel: 'Commercial & TVC',
-    description: 'Comprehensive commercial campaign master repository, television commercials, brand identity spots, and broadcast cutdowns.',
+    title: 'corporate films and ad films',
+    categoryLabel: 'Corporate & Commercial',
+    description: 'Comprehensive commercial campaign master repository, television commercials, brand identity spots, corporate cinema, and broadcast cutdowns.',
     driveLink: '',
     clientOrOrg: 'Broadcast & Commercial Clients',
-    tags: ['TVC Master', 'Broadcast 4K', 'Campaign Cutdowns'],
-    highlightText: 'Master Broadcast Reel'
-  },
-  {
-    id: 'corporate-films-archive',
-    title: 'Corporate films archive',
-    categoryLabel: 'Corporate Cinema',
-    description: 'Executive corporate retrospectives, industrial manufacturing processes, corporate culture narratives, and annual shareholder reels.',
-    driveLink: '',
-    clientOrOrg: 'Enterprise & Industrial',
-    tags: ['Industrial Documentaries', 'Executive Briefs', 'Brand Legacy'],
-    highlightText: 'Enterprise Vault'
+    tags: ['TVC Master', 'Corporate Showcase', 'Broadcast 4K', 'Campaign Cutdowns'],
+    highlightText: 'Master Broadcast Reel',
+    coverImage: corporateFilmsImage,
+    objectPosition: 'center 52%'
   },
   {
     id: 'ngo-social-impact-films',
@@ -833,57 +828,30 @@ export const AD_FILM_ARCHIVES: AdFilmDriveArchive[] = [
     driveLink: '',
     clientOrOrg: 'Development Agencies & NGOs',
     tags: ['Humanitarian', 'Rural Impact', 'Grassroots Voices'],
-    highlightText: 'Impact Stories'
+    highlightText: 'Impact Stories',
+    coverImage: ngoSocialImpactImage
+  },
+  {
+    id: 'corporate-films-archive',
+    title: 'documentary',
+    categoryLabel: 'Documentary',
+    description: 'We create documentary films, stories and visual content that give voice to communities, inspire action and help your work reach more people.',
+    driveLink: '',
+    clientOrOrg: 'NGOs & Development Partners',
+    tags: ['Documentary Films', 'Social Impact', 'Field Docs', 'Awareness Campaigns'],
+    highlightText: 'Films That Amplify Impact',
+    coverImage: ngoSocialImpactPosterImage
   },
   {
     id: 'the-diddle-productions',
-    title: 'The diddle (productions)',
-    categoryLabel: 'Original Production',
-    description: 'Creative short formats, boutique brand content, digital campaigns, and stylized studio productions by The Diddle.',
+    title: 'Short films',
+    categoryLabel: 'Short Films',
+    description: 'Big stories in tiny packages. Creative short narrative formats, boutique brand cinema, stylized digital stories, and festival-circuit productions.',
     driveLink: '',
-    clientOrOrg: 'The Diddle Productions',
-    tags: ['Original Formats', 'Digital First', 'Stylized Visuals'],
-    highlightText: 'Production Slate'
-  },
-  {
-    id: 'sri-jagannath-mandir-heritage',
-    title: 'Sri Jagannath mandir heritage corridor',
-    categoryLabel: 'Heritage & Monumental',
-    description: 'Cinematic visual documentation of the sacred Puri Parikrama Prakalpa, heritage architectural corridors, rituals, and civic devotion.',
-    driveLink: '',
-    clientOrOrg: 'Govt. of Odisha / Heritage Works',
-    tags: ['Puri Parikrama', 'Spiritual Heritage', 'Architectural Drone'],
-    highlightText: 'State Monumental Archive'
-  },
-  {
-    id: '5t-school-development',
-    title: '5T school and development documetation',
-    categoryLabel: 'Education & Governance',
-    description: 'Ground-level transformation chronicles of state high schools under the 5T initiative, smart classrooms, science laboratories, and student journeys.',
-    driveLink: '',
-    clientOrOrg: '5T High School Transformation',
-    tags: ['Smart Classrooms', '5T Transformation', 'Education Reform'],
-    highlightText: 'Civic Transformation'
-  },
-  {
-    id: 'skill-odisha-youth-osda',
-    title: 'Skill odisha youth (osda)',
-    categoryLabel: 'Youth & Vocational',
-    description: 'Skill development documentary reels, vocational champions, WorldSkills competition journeys, and empowering technical training narratives.',
-    driveLink: '',
-    clientOrOrg: 'Odisha Skill Development Authority',
-    tags: ['OSDA', 'Youth Empowerment', 'Technical Champions'],
-    highlightText: 'Skilled-in-Odisha'
-  },
-  {
-    id: 'women-child-development-mamata',
-    title: 'women and child development ( mamata scheme)',
-    categoryLabel: 'Healthcare & Welfare',
-    description: 'Maternal health welfare program documentation, frontline Anganwadi workers, nutritional security, and beneficiary impact across rural districts.',
-    driveLink: '',
-    clientOrOrg: 'Women & Child Development Dept.',
-    tags: ['Mamata Scheme', 'Maternal Health', 'Welfare Outreach'],
-    highlightText: 'Welfare Lifeline'
+    clientOrOrg: 'Original Productions & Shorts',
+    tags: ['Short Films', 'Big Stories', 'Digital Formats', 'Original Productions'],
+    highlightText: 'Big Stories in Tiny Packages',
+    coverImage: shortFilmsCoverImage
   }
 ];
 

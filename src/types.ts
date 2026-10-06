@@ -140,4 +140,6 @@ export interface AdFilmDriveArchive {
   tags?: string[];
   clientOrOrg?: string;
   highlightText?: string;
+  coverImage?: string;
+  objectPosition?: string;
 }
