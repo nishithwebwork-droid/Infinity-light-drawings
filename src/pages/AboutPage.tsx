@@ -370,7 +370,11 @@ export const AboutPage: React.FC<AboutPageProps> = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {CORE_TEAM.map((member) => (
-              <div key={member.id} className="bg-[#111111] p-6 rounded-xl border border-white/10 flex flex-col justify-between">
+              <div 
+                key={member.id} 
+                id={`team-member-${member.id}`}
+                className="bg-[#111111] p-6 rounded-xl border border-white/10 flex flex-col justify-between hover:border-[#F5A623]/40 transition-colors"
+              >
                 <div>
                   <div className="aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-black">
                     <img

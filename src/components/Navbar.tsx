@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Film, Menu, X, Code2, ArrowUpRight, Clapperboard } from 'lucide-react';
+import { Menu, X, Code2, Clapperboard } from 'lucide-react';
 import { STUDIO_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -87,29 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange, onO
               })}
             </nav>
 
-            {/* Right Action: Astro Architecture & Initiate Work */}
-            <div className="hidden lg:flex items-center gap-3">
-              {onOpenAstroSpecs && (
-                <button
-                  id="astro-specs-btn"
-                  onClick={onOpenAstroSpecs}
-                  title="View Astro Architecture & Source Files"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded border border-white/10 bg-white/5 hover:bg-white/10 text-[#A0A0A0] hover:text-white text-[11px] font-mono transition-all cursor-pointer"
-                >
-                  <Code2 className="w-3.5 h-3.5 text-[#F5A623]" />
-                  <span>Astro Code</span>
-                </button>
-              )}
 
-              <button
-                id="header-cta-btn"
-                onClick={() => handleNavClick('/contact')}
-                className="flex items-center gap-2 px-4 py-2 bg-[#F5A623] hover:bg-[#FFAA1D] text-black text-xs font-mono font-bold tracking-wider rounded transition-all transform hover:-translate-y-0.5 cursor-pointer shadow-[0_0_20px_rgba(245,166,35,0.25)]"
-              >
-                <span>INITIATE FILM</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
 
             {/* Mobile Menu Toggle */}
             <div className="flex items-center gap-2 md:hidden">

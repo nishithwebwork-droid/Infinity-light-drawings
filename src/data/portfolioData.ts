@@ -45,6 +45,7 @@ import adFilmsTvcsCoverImage from '../assets/images/regenerated_image_1790345050
 import ngoSocialImpactPosterImage from '../assets/images/ngo-social-impact-poster.jpg';
 import ngoSocialImpactImage from '../assets/images/regenerated_image_1791293162563.png';
 import shortFilmsCoverImage from '../assets/images/short_films_cover.jpg';
+import swarupRanjanImage from '../assets/images/swarup_ranjan.jpg';
 const odishaTourismImage = adFilmsTvcsCoverImage;
 
 export const STUDIO_INFO = {
@@ -600,6 +601,21 @@ export const CORE_TEAM: TeamMember[] = [
       instagram: 'https://instagram.com/nishithray',
       vimeo: 'https://vimeo.com/nishithray',
       linkedin: 'https://linkedin.com/in/nishithray'
+    }
+  },
+  {
+    id: 'swarup-ranjan',
+    name: 'SWARUP RANJAN',
+    title: 'Cinematographer & Video Editor',
+    roleTag: 'CINEMATOGRAPHER & VIDEO EDITOR',
+    bio: 'A visual storyteller with experience across film promotions, advertisements, television, digital entertainment, and corporate productions. Specialising in cinematography, lighting, visual composition, and post-production, Swarup brings creative vision and technical precision to every frame. His credits include Lust Stories 3 (Netflix promo), Naukri dot com , Zee Music, RVCJ, and television shows for &TV.',
+    image: swarupRanjanImage,
+    imagePosition: '70% 30%',
+    credits: ['Lust Stories 3 (Netflix promo)', 'Naukri dot com', 'Zee Music', 'RVCJ', '&TV Shows'],
+    equipmentSpecialty: 'Cinematography, Lighting & Composition, DaVinci Resolve, Premiere Pro',
+    socials: {
+      instagram: 'https://instagram.com/swarupranjan',
+      linkedin: 'https://linkedin.com'
     }
   },
   {

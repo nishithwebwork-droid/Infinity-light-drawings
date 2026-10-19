@@ -161,7 +161,7 @@ export const Footer: React.FC<FooterProps> = ({ onRouteChange }) => {
           </div>
           <div className="flex items-center gap-4">
             <span>ARRI RAW &bull; REDCODE 8K &bull; ACES CC</span>
-            <span className="text-[#F5A623]">MUMBAI &bull; BHUBANESWAR</span>
+            <span className="text-[#F5A623]">MUMBAI &bull; KATAKA</span>
           </div>
         </div>
       </div>
