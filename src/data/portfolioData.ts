@@ -604,6 +604,21 @@ export const CORE_TEAM: TeamMember[] = [
     }
   },
   {
+    id: 'sourav-mahapatra',
+    name: 'SOURAV MAHAPATRA',
+    title: 'Creative Director & Management',
+    roleTag: 'CREATIVE DIRECTOR & MANAGEMENT',
+    bio: 'Known for The Jengaburu Curse (2023) and The Mountain Hockey (2021), he leads the creative vision while overseeing project execution and team management.',
+    image: souravMahapatraImage,
+    imagePosition: 'center 15%',
+    credits: ['The Jengaburu Curse (2023)', 'The Mountain Hockey (2021)', 'Tata Steel Brand Spot'],
+    equipmentSpecialty: 'Creative Direction, Executive Production, Team Management',
+    socials: {
+      instagram: 'https://instagram.com/souravmahapatra',
+      linkedin: 'https://linkedin.com'
+    }
+  },
+  {
     id: 'swarup-ranjan',
     name: 'SWARUP RANJAN',
     title: 'Cinematographer & Video Editor',
@@ -659,21 +674,6 @@ export const CORE_TEAM: TeamMember[] = [
     socials: {
       instagram: 'https://instagram.com/aswinijena',
       vimeo: 'https://vimeo.com/aswinijena',
-      linkedin: 'https://linkedin.com'
-    }
-  },
-  {
-    id: 'sourav-mahapatra',
-    name: 'SOURAV MAHAPATRA',
-    title: 'Creative Director & Management',
-    roleTag: 'CREATIVE DIRECTOR & MANAGEMENT',
-    bio: 'Known for The Jengaburu Curse (2023) and The Mountain Hockey (2021), he leads the creative vision while overseeing project execution and team management.',
-    image: souravMahapatraImage,
-    imagePosition: 'center 15%',
-    credits: ['The Jengaburu Curse (2023)', 'The Mountain Hockey (2021)', 'Tata Steel Brand Spot'],
-    equipmentSpecialty: 'Creative Direction, Executive Production, Team Management',
-    socials: {
-      instagram: 'https://instagram.com/souravmahapatra',
       linkedin: 'https://linkedin.com'
     }
   }

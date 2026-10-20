@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Code2, Clapperboard } from 'lucide-react';
+import { Menu, X, Clapperboard } from 'lucide-react';
 import { STUDIO_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
@@ -139,26 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange, onO
             </div>
           </div>
 
-          <div className="space-y-4 pt-6 border-t border-white/10">
-            {onOpenAstroSpecs && (
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenAstroSpecs();
-                }}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded border border-white/20 bg-white/5 text-[#E0E0E0] text-xs font-mono"
-              >
-                <Code2 className="w-4 h-4 text-[#F5A623]" />
-                <span>View Astro Code & Config</span>
-              </button>
-            )}
-
-            <button
-              onClick={() => handleNavClick('/contact')}
-              className="w-full py-3 bg-[#F5A623] text-black text-center text-xs font-mono font-bold tracking-wider rounded"
-            >
-              START A PROJECT
-            </button>
+          <div className="pt-6 border-t border-white/10">
             <div className="text-center text-[10px] text-[#A0A0A0] font-mono">
               MUMBAI &bull; ODISHA &bull; GLOBAL PRODUCTIONS
             </div>
