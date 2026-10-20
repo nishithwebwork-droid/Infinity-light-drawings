@@ -174,35 +174,33 @@ export const WorkPage: React.FC<WorkPageProps> = ({ onSelectProject, onInitiateF
                       </div>
 
                       {/* Hover / Play Action Button */}
-                      <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-300 ${
-                        project.trailerYoutubeUrl
-                          ? 'bg-black/35 backdrop-blur-[1px] opacity-90 sm:opacity-0 group-hover:opacity-100'
-                          : 'opacity-0 group-hover:opacity-100 bg-black/45 backdrop-blur-[2px]'
-                      }`}>
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (project.trailerYoutubeUrl) {
-                              window.open(project.trailerYoutubeUrl, '_blank', 'noopener,noreferrer');
-                            } else {
+                      {project.id !== 'nanda-master' && (
+                        <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-300 ${
+                          project.trailerYoutubeUrl
+                            ? 'bg-black/35 backdrop-blur-[1px] opacity-90 sm:opacity-0 group-hover:opacity-100'
+                            : 'opacity-0 group-hover:opacity-100 bg-black/45 backdrop-blur-[2px]'
+                        }`}>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
                               onSelectProject(project);
-                            }
-                          }}
-                          className="w-14 h-14 rounded-full bg-[#F5A623] hover:bg-[#FFAA1D] text-black flex items-center justify-center shadow-[0_0_30px_rgba(245,166,35,0.85)] hover:scale-110 active:scale-95 transition-all cursor-pointer group/btn"
-                          title={project.trailerYoutubeUrl ? `Play ${project.title} on YouTube` : `View ${project.title} Details`}
-                          aria-label={project.trailerYoutubeUrl ? `Play ${project.title} on YouTube` : `View ${project.title} details`}
-                        >
-                          {project.trailerYoutubeUrl ? (
-                            <Play className="w-6 h-6 ml-0.5 fill-black group-hover/btn:scale-110 transition-transform" />
-                          ) : (
-                            <Maximize2 className="w-6 h-6 text-black group-hover/btn:scale-110 transition-transform" />
-                          )}
-                        </button>
-                        <span className="mt-2 text-[10px] font-mono tracking-wider uppercase text-white/90 bg-black/80 px-2.5 py-0.5 rounded border border-[#F5A623]/30 pointer-events-none shadow-md">
-                          {project.trailerYoutubeUrl ? 'PLAY ON YOUTUBE' : 'VIEW CASE / COVER'}
-                        </span>
-                      </div>
+                            }}
+                            className="w-14 h-14 rounded-full bg-[#F5A623] hover:bg-[#FFAA1D] text-black flex items-center justify-center shadow-[0_0_30px_rgba(245,166,35,0.85)] hover:scale-110 active:scale-95 transition-all cursor-pointer group/btn"
+                            title={project.trailerYoutubeUrl ? `Play ${project.title}` : `View ${project.title} Details`}
+                            aria-label={project.trailerYoutubeUrl ? `Play ${project.title}` : `View ${project.title} details`}
+                          >
+                            {project.trailerYoutubeUrl ? (
+                              <Play className="w-6 h-6 ml-0.5 fill-black group-hover/btn:scale-110 transition-transform" />
+                            ) : (
+                              <Maximize2 className="w-6 h-6 text-black group-hover/btn:scale-110 transition-transform" />
+                            )}
+                          </button>
+                          <span className="mt-2 text-[10px] font-mono tracking-wider uppercase text-white/90 bg-black/80 px-2.5 py-0.5 rounded border border-[#F5A623]/30 pointer-events-none shadow-md">
+                            {project.trailerYoutubeUrl ? 'PLAY ON YOUTUBE' : 'VIEW CASE / COVER'}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                   {/* Body Content */}

@@ -285,6 +285,8 @@ export const PROJECTS: Project[] = [
       'Semi-Finalist — Miami 4 Social Change Youth Film Festival (USA)'
     ],
     clientOrStudio: 'Independent Short Documentary',
+    trailerVideoId: 'QYscwTyqy_0',
+    trailerYoutubeUrl: 'https://www.youtube.com/watch?v=QYscwTyqy_0',
     imdbUrl: 'https://www.imdb.com/title/tt12504996/?ref_=nm_knf_t_1',
     sampleVideoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     featured: false,
@@ -357,6 +359,7 @@ export const PROJECTS: Project[] = [
     awards: ['IMDb 9.9/10 Rated Short Film', 'Official Selection — Lockdown Film Showcase'],
     clientOrStudio: 'Independent Short Film',
     imdbUrl: 'https://www.imdb.com/title/tt13428532/?ref_=nm_knf_t_2',
+    trailerVideoId: 'K7fg9FRb6sQ',
     trailerYoutubeUrl: 'https://www.youtube.com/watch?v=K7fg9FRb6sQ',
     sampleVideoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
     featured: false,

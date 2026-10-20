@@ -162,22 +162,27 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
                       {/* Bottom Control Bar */}
                       <div className="w-full flex flex-wrap items-center justify-center gap-2.5 pointer-events-auto">
-                        {project.trailerYoutubeUrl ? (
+                        {project.trailerVideoId && (
                           <button
-                            onClick={() => window.open(project.trailerYoutubeUrl, '_blank', 'noopener,noreferrer')}
+                            id="modal-play-trailer-btn"
+                            onClick={() => setIsPlaying(true)}
                             className="px-5 py-2 rounded-full bg-[#F5A623] hover:bg-[#FFAA1D] text-black text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 shadow-[0_0_25px_rgba(245,166,35,0.7)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
                           >
                             <Play className="w-4 h-4 fill-black" />
-                            <span>WATCH ON YOUTUBE</span>
-                          </button>
-                        ) : project.trailerVideoId && (
-                          <button
-                            onClick={() => setIsPlaying(true)}
-                            className="px-4 py-1.5 rounded-full bg-[#F5A623] hover:bg-[#FFAA1D] text-black text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 shadow-lg transition-transform hover:scale-105 active:scale-95 cursor-pointer"
-                          >
-                            <Play className="w-3.5 h-3.5 fill-black" />
                             <span>PLAY TRAILER</span>
                           </button>
+                        )}
+                        {project.trailerYoutubeUrl && (
+                          <a
+                            href={project.trailerYoutubeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 rounded-full bg-black/85 hover:bg-black text-[#F5A623] hover:text-[#FFAA1D] text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-1.5 border border-[#F5A623]/40 hover:border-[#F5A623] transition-all shadow-lg cursor-pointer"
+                          >
+                            <Play className="w-3.5 h-3.5 fill-[#F5A623]" />
+                            <span>WATCH ON YOUTUBE</span>
+                            <ExternalLink className="w-3 h-3 ml-0.5" />
+                          </a>
                         )}
                         <button
                           onClick={() => setActiveTab('poster')}
